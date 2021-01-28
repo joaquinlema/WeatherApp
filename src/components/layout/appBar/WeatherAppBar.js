@@ -29,11 +29,11 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
-    marginLeft: 0,
+    marginLeft: '100%',
     width: '100%',
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(1),
-      width: 'auto',
+      width: 'auto', 
     },
   },
   searchIcon: {
@@ -75,11 +75,11 @@ export default function WeatherAppBar() {
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
-          >
+          > 
             <MenuIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
+            Weather App
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>

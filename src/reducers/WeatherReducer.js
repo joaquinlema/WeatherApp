@@ -3,7 +3,7 @@ import { LOADING,ERROR,GET_WEATHER_DATA } from "../actions/types";
 const initialState = {
     loading : false,
     error : '',
-    weatherData: {}
+    weatherData: []
 };
 
 export default (state = initialState, action) => {

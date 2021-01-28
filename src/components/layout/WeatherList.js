@@ -15,7 +15,7 @@ const WeatherList = ({weatherData}) => {
 }
 
 WeatherList.propTypes = {
-    weatherData: PropTypes.object.isRequired,
+    weatherData: PropTypes.array,
 }
 
 export default WeatherList;
