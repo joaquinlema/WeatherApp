@@ -7,7 +7,7 @@ const WeatherList = ({weatherData}) => {
         <Fragment>
             {
                 weatherData.length > 0 && weatherData.map((item,index) => (
-                    <WeatherItem key={index} />
+                    <WeatherItem key={index} itemData={item} />
                 ))
             }
         </Fragment>
@@ -17,5 +17,5 @@ const WeatherList = ({weatherData}) => {
 WeatherList.propTypes = {
     weatherData: PropTypes.array,
 }
-
+ 
 export default WeatherList;

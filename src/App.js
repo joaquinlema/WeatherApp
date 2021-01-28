@@ -4,8 +4,6 @@ import store from './store';
 import WeatherBox from './components/layout/WeatherBox';
 import MenuBar from './components/layout/appBar/MenuBar';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,15 +22,6 @@ const App = () => {
   return (
     <Provider store={store}>
       <MenuBar content={<WeatherBox />}/>
-      {/* <div className={classes.root}>
-        <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <Paper className={classes.paper}>
-              <WeatherBox />
-            </Paper>
-          </Grid>
-        </Grid>
-      </div> */}
     </Provider>
   );
 }

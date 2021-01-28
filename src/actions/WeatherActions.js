@@ -1,4 +1,4 @@
-import { LOADING,ERROR,KEY,GET_WEATHER_DATA } from './types';
+import { LOADING, ERROR, KEY, GET_WEATHER_DATA } from './types';
 
 export const setLoading = () => {
     return{
@@ -8,7 +8,6 @@ export const setLoading = () => {
 
 export const getWeather = () => async dispatch => {
     try {
-        setLoading();
 
         const res = await fetch('https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/forecast?lat=-34.6132&lon=-58.3772&appid='+KEY,{
             headers : { 
@@ -17,6 +16,7 @@ export const getWeather = () => async dispatch => {
                }
         });
         const data = await res.json();
+        
        
         dispatch({
             type: GET_WEATHER_DATA,

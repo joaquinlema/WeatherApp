@@ -15,3 +15,4 @@ const store = createStore(
 
 export default store;
 
+//npm i redux react-redux redux-thunk redux-devtools-extension

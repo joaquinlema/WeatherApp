@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function WeatherItem() {
+export default function WeatherItem({itemData}) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
