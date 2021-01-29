@@ -9,7 +9,19 @@ const WeatherList = ({weatherData,weatherCity}) => {
         <Grid container>
             {
                 weatherData.length > 0 && weatherData.map((item,index) => (
-                    <WeatherItem key={index} itemData={item} itemCity={weatherCity}/>
+                    <WeatherItem 
+                        key={index} 
+                        icon={item.weather[0].icon}
+                        cloud={item.clouds.all}
+                        country={weatherCity.country}
+                        cityName={weatherCity.name}
+                        hum={item.main.humidity}
+                        lat={weatherCity.coord.lat}
+                        long={weatherCity.coord.lon}
+                        tempmax={item.main.temp_max}
+                        tempmin={item.main.temp_min}
+                        wind={item.wind.speed}
+                    />
                 ))
             }
         </Grid>

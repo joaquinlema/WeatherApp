@@ -1,14 +1,20 @@
-import { LOADING,ERROR,GET_WEATHER_DATA } from "../actions/types";
+import { LOADING,ERROR,GET_WEATHER_DATA, GET_WEATHER_DATA_BA } from "../actions/types";
 
 const initialState = {
     loading : false,
     error : '',
     weatherData: [],
-    weatherCity: {}
+    weatherCity: {},
+    weatherBA:{}
 };
 
 export default (state = initialState, action) => {
     switch(action.type){
+        case GET_WEATHER_DATA_BA:
+            return{
+                ...state,
+                weatherBA: action.payload
+            }
         case GET_WEATHER_DATA:
             return{
                 ...state,

@@ -1,9 +1,21 @@
-import React, { Fragment } from 'react'
+import React, { Fragment } from 'react';
+import WeatherBox from '../layout/WeatherBox';
+import Grid from '@material-ui/core/Grid';
 
 const Home = () =>( 
-        <Fragment>
+        <Grid container>
+                <Grid container>
+                        <Grid item md={4}>
 
-        </Fragment>
+                        </Grid>
+                        <Grid item md={8}>
+                                
+                        </Grid>
+                </Grid>
+                <Grid container>
+                        <WeatherBox />
+                </Grid>
+        </Grid>
 )
 
 export default Home

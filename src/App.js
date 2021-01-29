@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import store from './store';
-import WeatherBox from './components/layout/WeatherBox';
+import Home from './components/pages/Home';
 import MenuBar from './components/layout/appBar/MenuBar';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <MenuBar content={<WeatherBox />}/>
+      <MenuBar content={<Home />}/>
     </Provider>
   );
 }

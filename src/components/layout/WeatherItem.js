@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function WeatherItem({itemData,itemCity}) {
+export default function WeatherItem({cityName, icon, country,lat, long,tempmax,tempmin,hum,wind, cloud}) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -51,7 +51,7 @@ export default function WeatherItem({itemData,itemCity}) {
     setExpanded(!expanded);
   };
 
-  let iconUrl = 'http://openweathermap.org/img/wn/'+itemData.weather[0].icon+'@2x.png';
+  let iconUrl = 'http://openweathermap.org/img/wn/'+icon+'@2x.png';
 
   return (
     <Grid item xs={12} md={3} lg={3} className={classes.gridSpace}>
@@ -59,7 +59,7 @@ export default function WeatherItem({itemData,itemCity}) {
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
-            {itemCity.country}
+            {country}
           </Avatar>
         }
         action={
@@ -67,17 +67,17 @@ export default function WeatherItem({itemData,itemCity}) {
             <MoreVertIcon />
           </IconButton>
         }
-        title={itemCity.name}
-        subheader={'Lat: '+itemCity.coord.lat+' \nLong: '+itemCity.coord.lon }
+        title={cityName}
+        subheader={'Lat: '+lat+' Long: '+long }
       />
       <CardMedia
         className={classes.media}
         image={iconUrl}
-        title="Paella dish"
+        title="image"
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          Temperature from {itemData.main.temp_min} to {itemData.main.temp_max} °С, wind {itemData.wind.speed} m/s. clouds {itemData.clouds.all} %, {itemData.main.humidity} Humidity
+          Temperature from {tempmin} to {tempmax} °С, wind {wind} m/s. clouds {cloud} %, {hum} Humidity
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
