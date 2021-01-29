@@ -13,7 +13,7 @@ const CityDetail = ({fecha,localidad,temp, tempLike, cloudsdesc, winddesc, rain,
             </Grid>
             <Grid container item>               
                 <span>Feels like {tempLike}°C. {cloudsdesc} {winddesc} </span>
-                <Grid conteiner>
+                <Grid container>
                     <Grid item>
                         {rain} {press} {hum}
                     </Grid>
