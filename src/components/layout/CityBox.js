@@ -6,7 +6,7 @@ import CityDetail from './CityDetail';
 import Animations from '../pages/Skeleton';
 import Grid from '@material-ui/core/Grid';
 
-const CityBox = ({WeatherReducer: {weatherCity, loading}, setLoading, getWeatherBA}) => {
+const CityBox = ({WeatherReducer: {weatherBA, loading}, setLoading, getWeatherBA}) => {
     useEffect(() => {
         setLoading();
         getWeatherBA();
@@ -16,17 +16,20 @@ const CityBox = ({WeatherReducer: {weatherCity, loading}, setLoading, getWeather
 
     return (
         <Grid container>
-            <CityDetail 
-            fecha={''} 
-            localidad={''} 
-            temp={''} 
-            tempLike={''} 
-            cloudsdesc={''} 
-            winddesc={''} 
-            rain={''} 
-            press={''} 
-            hum={''}
-            />
+            {(Object.keys(weatherBA).length !== 0 && 
+                <CityDetail 
+                fecha={(new Date()).toUTCString()} 
+                localidad={weatherBA.name + ' ' + weatherBA.sys.country} 
+                temp={weatherBA.main.temp} 
+                tempLike={weatherBA.main.feels_like} 
+                cloudsdesc={weatherBA.weather[0].description} 
+                winddesc={weatherBA.wind.speed}   
+                rain={0} 
+                press={weatherBA.main.pressure} 
+                hum={weatherBA.main.humidity}
+                icon={weatherBA.weather[0].icon}
+                />
+            )}
         </Grid>
     );
 }
