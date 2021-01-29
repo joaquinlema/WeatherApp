@@ -6,7 +6,7 @@ import {getWeather,setLoading} from '../../actions/WeatherActions';
 import WeatherList from './WeatherList';
 import Loading from '../pages/Loading';
 
-const WeatherBox = ({weatherReducer: { loading, weatherData},getWeather,setLoading}) => {
+const WeatherBox = ({weatherReducer: { loading, weatherData,weatherCity},getWeather,setLoading}) => {
 
     useEffect(() => {
         setLoading();
@@ -17,7 +17,7 @@ const WeatherBox = ({weatherReducer: { loading, weatherData},getWeather,setLoadi
     if(loading) return (<Loading />)
 
     return (
-        <WeatherList weatherData={weatherData}/>
+        <WeatherList weatherData={weatherData} weatherCity={weatherCity}/>
     );
 }
 

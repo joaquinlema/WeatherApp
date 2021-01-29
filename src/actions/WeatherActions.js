@@ -20,7 +20,7 @@ export const getWeather = () => async dispatch => {
        
         dispatch({
             type: GET_WEATHER_DATA,
-            payload: [data]
+            payload: data
         });
 
     } catch (error) {

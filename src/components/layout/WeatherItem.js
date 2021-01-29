@@ -15,10 +15,14 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
+  },
+  gridSpace: {
+    marginBottom: '1%'
   },
   media: {
     height: 0,
@@ -39,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function WeatherItem({itemData}) {
+export default function WeatherItem({itemData,itemCity}) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -47,12 +51,15 @@ export default function WeatherItem({itemData}) {
     setExpanded(!expanded);
   };
 
+  let iconUrl = 'http://openweathermap.org/img/wn/'+itemData.weather[0].icon+'@2x.png';
+
   return (
-    <Card className={classes.root}>
+    <Grid item xs={12} md={3} lg={3} className={classes.gridSpace}>
+      <Card className={classes.root}>
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
-            R
+            {itemCity.country}
           </Avatar>
         }
         action={
@@ -60,18 +67,17 @@ export default function WeatherItem({itemData}) {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
+        title={itemCity.name}
+        subheader={'Lat: '+itemCity.coord.lat+' \nLong: '+itemCity.coord.lon }
       />
       <CardMedia
         className={classes.media}
-        image="/static/images/cards/paella.jpg"
+        image={iconUrl}
         title="Paella dish"
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook together with your
-          guests. Add 1 cup of frozen peas along with the mussels, if you like.
+          Temperature from {itemData.main.temp_min} to {itemData.main.temp_max} °С, wind {itemData.wind.speed} m/s. clouds {itemData.clouds.all} %, {itemData.main.humidity} Humidity
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -120,5 +126,6 @@ export default function WeatherItem({itemData}) {
         </CardContent>
       </Collapse>
     </Card>
+  </Grid>
   );
 }

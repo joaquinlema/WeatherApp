@@ -3,7 +3,8 @@ import { LOADING,ERROR,GET_WEATHER_DATA } from "../actions/types";
 const initialState = {
     loading : false,
     error : '',
-    weatherData: []
+    weatherData: [],
+    weatherCity: {}
 };
 
 export default (state = initialState, action) => {
@@ -11,7 +12,8 @@ export default (state = initialState, action) => {
         case GET_WEATHER_DATA:
             return{
                 ...state,
-                weatherData: action.payload,
+                weatherData: action.payload.list,
+                weatherCity: action.payload.city,
                 loading:false
             }
         case LOADING:
