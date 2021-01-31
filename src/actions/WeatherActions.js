@@ -10,14 +10,12 @@ export const setLoading = () => {
 export const getWeather = () => async dispatch => {
     try {
 
-        const res = await axios('https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/forecast?lat=-34.6132&lon=-58.3772&appid='+KEY,{
+        const data = await axios('https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/forecast?lat=-34.6132&lon=-58.3772&appid='+KEY,{
             headers : { 
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
                }
-        });
-        const data = await res.json();
-        
+        });        
        
         dispatch({
             type: GET_WEATHER_DATA,
