@@ -8,7 +8,7 @@ const CityDetail = ({fecha,localidad,temp, tempLike, cloudsdesc, winddesc, rain,
     return (
         <Grid container>
             <Grid container item>               
-                <span>{fecha}</span>
+                <span>{fecha}</span><br />
                 <h2>{localidad}</h2>
             </Grid>
             <Grid container item>               
@@ -19,7 +19,7 @@ const CityDetail = ({fecha,localidad,temp, tempLike, cloudsdesc, winddesc, rain,
                 </p>
             </Grid>
             <Grid container item>               
-                <span><strong>Feels like {tempLike}°C. {cloudsdesc} {winddesc} </strong></span>
+                <div style={{borderBlockColor:'1px solid green'}}><strong>Feels like {tempLike}°C. {cloudsdesc} {winddesc} </strong></div>
                 <Grid container>
                     <Grid item>
                         {rain} {press} {hum}

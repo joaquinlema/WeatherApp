@@ -1,4 +1,5 @@
 import { LOADING, ERROR, KEY, GET_WEATHER_DATA_BA } from './types';
+import axios from 'axios';
 
 export const setLoading = () => {
     return{
@@ -9,7 +10,7 @@ export const setLoading = () => {
 export const getWeatherBA = () => async dispatch => {
     try {
 
-        const res = await fetch('https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=buenos+aires&appid='+KEY,{
+        const res = await axios('https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=buenos+aires&appid='+KEY,{
             headers : { 
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'

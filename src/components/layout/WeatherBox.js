@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {getWeather,setLoading} from '../../actions/WeatherActions';
 import WeatherList from './WeatherList';
-import Loading from '../pages/Loading';
+import Animations from '../pages/Skeleton';
 
 const WeatherBox = ({weatherReducer: { loading, weatherData,weatherCity},getWeather,setLoading}) => {
 
@@ -14,7 +14,7 @@ const WeatherBox = ({weatherReducer: { loading, weatherData,weatherCity},getWeat
     }, [])
 
 
-    if(loading) return (<Loading />)
+    if(loading) return (<Animations />)
 
     return (
         <WeatherList weatherData={weatherData} weatherCity={weatherCity}/>
